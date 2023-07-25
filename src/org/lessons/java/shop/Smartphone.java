@@ -12,6 +12,6 @@ public class Smartphone extends Prodotto{
 
     @Override
     public String toString() {
-        return " name:"+getName()+" brand:"+getBrand()+" price:"+taxedPrice()+" IMEI:"+imeiCode+" memory space"+memorySpace;
+        return " Product {name:"+getName()+" brand:"+getBrand()+" price:"+taxedPrice()+" IMEI:"+imeiCode+" memory space"+memorySpace+"}";
     }
 }

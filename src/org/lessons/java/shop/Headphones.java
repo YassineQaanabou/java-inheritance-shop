@@ -3,8 +3,8 @@ package org.lessons.java.shop;
 public class Headphones extends Prodotto{
 
     private String colour;
-    private boolean wireless;
-    public Headphones(String name, String brand, Double price, Double iva, String colour, boolean wireless) {
+    private String wireless;
+    public Headphones(String name, String brand, Double price, Double iva, String colour, String wireless) {
         super(name, brand, price, iva);
         this.colour=colour;
         this.wireless=wireless;
@@ -12,7 +12,7 @@ public class Headphones extends Prodotto{
 
     @Override
     public String toString() {
-        return " name:"+getName()+" brand:"+getBrand()+" price:"+taxedPrice()+" colour:"+colour+" wireless:"+wireless;
+        return "Product name:"+getName()+" brand:"+getBrand()+" price:"+taxedPrice()+" colour:"+colour+" wireless:"+wireless+"}";
 
     }
 }
