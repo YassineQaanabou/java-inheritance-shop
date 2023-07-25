@@ -13,6 +13,9 @@ public class Carrello {
 
         while (!flag) {
 
+            System.out.println("hai una carta fedeltà?");
+            String fidelity = scan.nextLine();
+
             System.out.println("Vuoi aggiungere un prodotto al carrello?");
             String choice = scan.nextLine();
 
@@ -40,7 +43,7 @@ public class Carrello {
                     System.out.println("Smartphone memory:");
                     int memorySpace = scan.nextInt();
 
-                    Prodotto smartphone = new Smartphone(name, brand, price, iva, imeiCode, memorySpace);
+                    Prodotto smartphone = new Smartphone(name, brand, price, iva,fidelity, imeiCode, memorySpace);
 
                     cart.add(smartphone);
 
@@ -51,7 +54,7 @@ public class Carrello {
                     System.out.println("Smart TV:");
                     String smart = scan.nextLine();
 
-                    Prodotto television = new Television(name, brand, price, iva, dimension, smart);
+                    Prodotto television = new Television(name, brand, price, iva, fidelity, dimension, smart);
 
                     cart.add(television);
 
@@ -63,7 +66,7 @@ public class Carrello {
                     System.out.println("Wireless:");
                     String wireless = scan.nextLine();
 
-                    Prodotto headphones = new Headphones(name, brand, price, iva, colour, wireless);
+                    Prodotto headphones = new Headphones(name, brand, price, iva, fidelity, colour, wireless);
                     cart.add(headphones);
 
                 } else {

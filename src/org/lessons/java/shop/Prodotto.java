@@ -5,27 +5,31 @@ import java.util.Random;
 public class Prodotto {
     private int code;
     private String name;
-    private String  brand;
+    private String brand;
     private double price;
     private double iva;
+    private String fidelity;
 
-    public Prodotto (String name, String brand,Double price, Double iva){
+    public Prodotto(String name, String brand, Double price, Double iva, String fidelity) {
         Random randomGenerator = new Random();
 
 
-        this.code=randomGenerator.nextInt(1, 99999999);
-        this.name=name;
-        this.price=price;
-        this.iva=iva;
-        this.brand=brand;
+        this.code = randomGenerator.nextInt(1, 99999999);
+        this.name = name;
+        this.price = price;
+        this.iva = iva;
+        this.brand = brand;
+        this.fidelity = fidelity;
     }
 
     public int getCode() {
         return code;
     }
+
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -54,10 +58,29 @@ public class Prodotto {
         this.iva = iva;
     }
 
-    public String taxedPrice(){
-
-        double taxedPriceCalculation= price+(price*(iva/100)) ;
-
-        return taxedPriceCalculation +"$";
+    public String getFidelity() {
+        return fidelity;
     }
-}
+
+    public double taxedPrice() {
+
+        double taxedPrice = price + (price * (iva / 100));
+
+        return taxedPrice;
+
+    }
+
+    public double discountedPrice() {
+
+        double taxedPrice = price + (price * (iva / 100));
+
+        if (fidelity.equalsIgnoreCase("si")) {
+            double discountedPrice = taxedPrice - (taxedPrice * 0.02);
+            return discountedPrice;
+
+        } else {
+            return  taxedPrice;
+        }
+        }
+    }
+
