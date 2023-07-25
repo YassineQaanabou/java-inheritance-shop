@@ -9,7 +9,6 @@ public class Television extends Prodotto{
         this.dimension= dimension;
         this.smart= smart;
     }
-
     public double finalPrice(){
         if (getFidelity().equalsIgnoreCase("si") && smart.equalsIgnoreCase("no")){
             return discountedPrice()-(taxedPrice()*0.10);
@@ -20,7 +19,7 @@ public class Television extends Prodotto{
 
     @Override
     public String toString() {
-        return "Product{ name:"+getName()+" brand:"+getBrand()+" price:"+finalPrice()+" Dimension:"+dimension+" smart tv"+smart+"}";
+        return "Product{ name:"+getName()+" brand:"+getBrand()+" price:"+finalPrice()+"$"+" Dimension:"+dimension+" smart tv"+smart+"}";
 
     }
 }

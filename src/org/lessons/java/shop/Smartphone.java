@@ -17,9 +17,8 @@ public class Smartphone extends Prodotto{
            return taxedPrice();
        }
    }
-
     @Override
     public String toString() {
-        return " Product {name:"+getName()+" brand:"+getBrand()+" price:"+finalPrice()+" IMEI:"+imeiCode+" memory space"+memorySpace+"}";
+        return " Product {name:"+getName()+" brand:"+getBrand()+" price:"+finalPrice()+"$"+" IMEI:"+imeiCode+" Memory space:"+memorySpace+"}";
     }
 }

@@ -8,13 +8,13 @@ public class Carrello {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         List<Prodotto> cart = new ArrayList<>();
+        List<Double> prices= new ArrayList<>();
+
+        System.out.println("hai una carta fedeltà?");
+        String fidelity = scan.nextLine();
 
         boolean flag=false;
-
         while (!flag) {
-
-            System.out.println("hai una carta fedeltà?");
-            String fidelity = scan.nextLine();
 
             System.out.println("Vuoi aggiungere un prodotto al carrello?");
             String choice = scan.nextLine();
@@ -43,9 +43,11 @@ public class Carrello {
                     System.out.println("Smartphone memory:");
                     int memorySpace = scan.nextInt();
 
-                    Prodotto smartphone = new Smartphone(name, brand, price, iva,fidelity, imeiCode, memorySpace);
+                    Smartphone smartphone = new Smartphone(name, brand, price, iva,fidelity, imeiCode, memorySpace);
 
                     cart.add(smartphone);
+                    prices.add(smartphone.finalPrice());
+
 
                 } else if (type.equalsIgnoreCase("televisore")) {
 
@@ -54,9 +56,11 @@ public class Carrello {
                     System.out.println("Smart TV:");
                     String smart = scan.nextLine();
 
-                    Prodotto television = new Television(name, brand, price, iva, fidelity, dimension, smart);
+                    Television television = new Television(name, brand, price, iva, fidelity, dimension, smart);
 
                     cart.add(television);
+
+                    prices.add(television.finalPrice());
 
 
                 } else if (type.equalsIgnoreCase("cuffiette")) {
@@ -66,8 +70,10 @@ public class Carrello {
                     System.out.println("Wireless:");
                     String wireless = scan.nextLine();
 
-                    Prodotto headphones = new Headphones(name, brand, price, iva, fidelity, colour, wireless);
+                    Headphones headphones = new Headphones(name, brand, price, iva, fidelity, colour, wireless);
                     cart.add(headphones);
+                    prices.add(headphones.finalPrice());
+
 
                 } else {
                     System.out.println("Tipo prodotto non riconosciuto");
@@ -75,13 +81,17 @@ public class Carrello {
             } else if (choice.equalsIgnoreCase("no")) {
                 flag=true;
             }
-
-
         }
-
         for (Prodotto prodotto : cart) {
-            System.out.print(prodotto);
+            System.out.println(" "+ prodotto);
         }
+        double totalPrice=0;
+
+        for (Double price : prices) {
+            totalPrice = totalPrice + price;
+        }
+
+        System.out.println("il tuo totale è di "+totalPrice+"$");
 
         System.out.println("Grazie per aver fatto acquisti da noi");
 

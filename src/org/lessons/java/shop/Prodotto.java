@@ -13,7 +13,6 @@ public class Prodotto {
     public Prodotto(String name, String brand, Double price, Double iva, String fidelity) {
         Random randomGenerator = new Random();
 
-
         this.code = randomGenerator.nextInt(1, 99999999);
         this.name = name;
         this.price = price;
@@ -41,42 +40,32 @@ public class Prodotto {
     public void setBrand(String brand) {
         this.brand = brand;
     }
-
     public double getPrice() {
         return price;
     }
-
     public void setPrice(double price) {
         this.price = price;
     }
-
     public double getIva() {
         return iva;
     }
-
     public void setIva(double iva) {
         this.iva = iva;
     }
-
     public String getFidelity() {
         return fidelity;
     }
-
     public double taxedPrice() {
 
-        double taxedPrice = price + (price * (iva / 100));
-
-        return taxedPrice;
+        return price + (price * (iva / 100));
 
     }
-
     public double discountedPrice() {
 
         double taxedPrice = price + (price * (iva / 100));
 
         if (fidelity.equalsIgnoreCase("si")) {
-            double discountedPrice = taxedPrice - (taxedPrice * 0.02);
-            return discountedPrice;
+            return taxedPrice - (taxedPrice * 0.02);
 
         } else {
             return  taxedPrice;

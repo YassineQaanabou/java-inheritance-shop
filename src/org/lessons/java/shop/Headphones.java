@@ -17,10 +17,9 @@ public class Headphones extends Prodotto{
             return taxedPrice();
         }
     }
-
     @Override
     public String toString() {
-        return "Product name:"+getName()+" brand:"+getBrand()+" price:"+finalPrice()+" colour:"+colour+" wireless:"+wireless+"}";
+        return "Product {name:"+getName()+" brand:"+getBrand()+" price:"+finalPrice()+"$" + " colour:"+colour+" wireless:"+wireless+"}";
 
     }
 }
